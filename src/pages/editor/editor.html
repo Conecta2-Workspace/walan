@@ -13,6 +13,51 @@
 </ion-header>
 
 
+
 <ion-content padding>
+
+<button ion-button (click)="poner()">poner div</button>
+
+
+ <ckeditor name="editorP"
+    [(ngModel)]="editorP"
+    debounce="500"
+    [config]="{
+      uiColor: '#2da8b1',                  
+      language: 'es',      
+      toolbarCanCollapse: true,
+      toolbarStartupExpanded: false,    
+      startupShowBorders: false,  
+      removePlugins :  'elementspath,enterkey,entities,forms,pastefromword,htmldataprocessor,specialchar,horizontalrule,wsc',      
+      toolbar : [
+       ['Format','Font','FontSize','saveButton'],
+       '/',
+       ['Bold','Italic','-','Undo','Redo','-','Cut','Copy','Paste','Find','Replace','-','Outdent','Indent'],
+       '/',
+       ['NumberedList','BulletedList','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+       ['Image','Table','-','Link','Smiley','TextColor','BGColor','Source']
+        ],
+        toolbar_mini : [
+       ['Format','Font','FontSize','saveButton']       
+        ]
+    }"
+    (change)="onChange($event)"
+    (ready)="onReady($event)"
+    (focus)="onFocus($event)"
+    (blur)="onBlur($event)"
+    
+    
+    >
+
+
+<ckbutton [name]="'saveButton'"
+      [command]="'saveCmd'"
+      (click)="save($event)"    
+      [icon]="'/save.png'"  
+      [label]="'Save Document'">
+    </ckbutton>
+
+  </ckeditor>
+
 
 </ion-content>

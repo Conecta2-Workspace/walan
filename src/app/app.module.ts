@@ -3,8 +3,12 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-
 import { MyApp } from './app.component';
+
+
+/****** NPM ******/
+import { CKEditorModule } from 'ng2-ckeditor';
+
 
 /****** Paginas ******/
 import { HomePage } from '../pages/home/home';
@@ -18,7 +22,8 @@ import { EditorPage } from '../pages/editor/editor';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    CKEditorModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
