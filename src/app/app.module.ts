@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
+import { HttpModule } from '@angular/http';
 
 
 /****** NPM ******/
@@ -14,6 +15,9 @@ import { CKEditorModule } from 'ng2-ckeditor';
 import { HomePage } from '../pages/home/home';
 import { EditorPage } from '../pages/editor/editor';
 
+/****** Provider ******/
+import { MediawikiServiceProvider } from '../providers/mediawiki-service/mediawiki-service';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -22,6 +26,7 @@ import { EditorPage } from '../pages/editor/editor';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
     CKEditorModule
   ],
@@ -34,7 +39,8 @@ import { EditorPage } from '../pages/editor/editor';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    MediawikiServiceProvider
   ]
 })
 export class AppModule {}
